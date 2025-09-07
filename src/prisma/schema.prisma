@@ -29,11 +29,11 @@ model Booking {
 
 model IdempotencyKey {
   id        Int      @id @default(autoincrement())
-  key       String   @unique  //going to contain booking Id 
+  idemKey   String   @unique  //going to contain booking Id 
   createdAt DateTime @default(now())  
   updatedAt DateTime @updatedAt
   finalized Boolean @default(false) //to check if the booking is finalized or not
-bookingId Int? @unique
+  bookingId Int? @unique
   booking  Booking?   @relation(fields: [bookingId], references: [id]) //booking association
   // booking   Booking?   //booking association
 }
